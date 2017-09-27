@@ -105,5 +105,3 @@ eval `docker-machine env 2>/dev/null` # Docker
 prompt pure # Pure Prompt
 
 ZSH_THEME="edvardm"
-
-eval "$(/Users/bshega/Documents/personal-dev/dotmatrix/hr/bin/hr init -)"
