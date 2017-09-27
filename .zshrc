@@ -5,47 +5,33 @@ fpath=(
   /usr/local/share/zsh/site-functions
 )
 
+## Sources
 source "$HOME/.sharedrc"
+source $HOME/.zsh/aliases
+source $HOME/.zsh/exports
+source $HOME/.zsh/path
+source $HOME/.zsh/functions
 
-# color term
-export CLICOLOR=1
-export LSCOLORS=Dxfxcxdxbxegedabadacad
-export ZLS_COLORS=$LSCOLORS
-export LC_CTYPE=en_US.UTF-8
-export LESS=FRX
-
-# make with the nice completion
-autoload -U compinit; compinit
-
-# Completion for kill-like commands
+## ZStyle
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
 zstyle ':completion:*:ssh:*' tag-order hosts users
 zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
-
-# ignore completion functions (until the _ignored completer)
 zstyle ':completion:*:functions' ignored-patterns '_*'
-
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zshcache
 
-# make with the pretty colors
+## Autoload
 autoload colors; colors
-
-# just say no to zle vim mode:
-bindkey -e
-
-# options
-setopt appendhistory extendedglob histignoredups nonomatch prompt_subst interactivecomments
-
-# Bindings
-# external editor support
+autoload -U compinit; compinit
 autoload edit-command-line
+autoload -U promptinit; promptinit;
 zle -N edit-command-line
-bindkey '^x^e' edit-command-line
 
-# Partial word history completion
+## Keybinds
+bindkey -e
+bindkey '^x^e' edit-command-line
 bindkey '\ep' up-line-or-search
 bindkey '\en' down-line-or-search
 bindkey '\ew' kill-region
@@ -68,47 +54,22 @@ if [ -z "$TMUX" ]; then
   bindkey -M viins "^Z" fg-widget
 fi
 
-# prompt
-p=
-if [ -n "$SSH_CONNECTION" ]; then
-  p='%{$fg_bold[yellow]%}%n@%m'
-else
-  p='%{$fg_bold[green]%}%n@%m'
-fi
-PROMPT="$p%{\$reset_color%}:%{\$fg_bold[cyan]%}%~%{\$reset_color%}\$(git_prompt_info '(%s)')%# "
+## Options
+setopt appendhistory extendedglob histignoredups nonomatch prompt_subst interactivecomments
 
-# show non-success exit code in right prompt
-RPROMPT="%(?..{%{$fg[red]%}%?%{$reset_color%}})"
-
-# history
+## Histroy
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=10000
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 
-# default apps
-(( ${+PAGER}   )) || export PAGER='less'
-(( ${+EDITOR}  )) || export EDITOR='vim'
-export PSQL_EDITOR='vim -c"setf sql"'
 
-# aliases
-alias l="ls -F -G -lah"
-alias ll="ls -l"
-alias la="ls -a"
-alias lsd='ls -ld *(-/DN)'
-alias md='mkdir -p'
-alias rd='rmdir'
-alias cd..='cd ..'
-alias ..='cd ..'
-alias groutes='rake routes | grep $@'
+## Functions
 
 l.() {
   ls -ld "${1:-$PWD}"/.[^.]*
 }
-
-# rvm-install added line:
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
 cuke() {
   local file="$1"
@@ -117,14 +78,22 @@ cuke() {
 }
 compctl -g '*.feature' -W features cuke
 
-# import local zsh customizations, if present
+## Import
 zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
 
-# set cd autocompletion to commonly visited directories
+## Misc
 cdpath=(~ ~/src $DEV_DIR $SOURCE_DIR)
-
-# remove duplicates in $PATH
 typeset -aU path
 
-command -v brew && [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+## External
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi # SwiftEnv
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # NVM
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi # RVM
+source $ZSH/oh-my-zsh.sh # Oh-My-ZSH
+eval `docker-machine env 2>/dev/null` # Docker
+prompt pure # Pure Prompt
+
+ZSH_THEME="edvardm"
+
+eval "$(/Users/bshega/Documents/personal-dev/dotmatrix/hr/bin/hr init -)"
