@@ -1,3 +1,7 @@
+if &compatible
+  set nocompatible
+endif
+
 if $VIM_PLUGINS != 'NO'
   if filereadable(expand('~/.vimbundle'))
     source ~/.vimbundle
@@ -5,21 +9,24 @@ if $VIM_PLUGINS != 'NO'
   runtime! ftplugin/man.vim
 endif
 
+let g:mapleader=","
+
 syntax on
 filetype plugin indent on
 
-set visualbell
+if has('gui')
+  set guifont=Monaco:h16
+  set guioptions-=T
+  set guioptions-=e
+  set guioptions-=L
+  set guioptions-=l
+  set guioptions-=R
+  set guioptions-=r
+  set guioptions-=b
 
-set wildmenu
-set wildmode=list:longest,full
+  call has('python')
+endif
 
-set splitright
-set splitbelow
-
-set hidden
-
-set guifont=Monaco:h16
-set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
 set shell=bash
 
 augroup vimrc
