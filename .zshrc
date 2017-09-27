@@ -105,3 +105,7 @@ eval `docker-machine env 2>/dev/null` # Docker
 prompt pure # Pure Prompt
 
 ZSH_THEME="edvardm"
+
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=0'
