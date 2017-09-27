@@ -1,0 +1,6 @@
+PATH="$HOME/.bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+PATH="$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$PATH"
+PATH="$HOME/.bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+PATH="$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$PATH"
