@@ -55,7 +55,17 @@ if [ -z "$TMUX" ]; then
 fi
 
 ## Options
-setopt appendhistory extendedglob histignoredups nonomatch prompt_subst interactivecomments
+setopt appendhistory
+setopt extendedglob
+setopt histignoredups
+setopt nonomatch
+setopt prompt_subst
+setopt interactivecomments
+setopt autoparamslash
+setopt autopushd
+setopt correct
+setopt correctall
+setopt autocd
 
 ## Histroy
 HISTFILE=~/.zsh_history
