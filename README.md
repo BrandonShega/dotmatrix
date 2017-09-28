@@ -1,10 +1,7 @@
 # DOTMATRIX
 
-Dotmatrix is a collection of dotfiles used at Hashrocket to customize various
-development tools. This project is the culmination of many years worth of
-tinkering with our favorite tools to get them to behave just right. We think
-using Dotmatrix makes working with these tools more pleasant and hope you will
-too!
+Dotmatrix is a collection of dotfiles used to customize various
+development tools.
 
 ## What are dotfiles?
 
@@ -28,7 +25,7 @@ you already have.
 Start by cloning down the repo:
 
 ```
-$ git clone https://github.com/hashrocket/dotmatrix.git
+$ git clone --recursive https://github.com/BrandonShega/dotmatrix.git
 ```
 
 Then run this script:
@@ -39,22 +36,13 @@ $ bin/install
 
 This script symlinks all dotfiles into your home directory.
 
-### Hashrocket Workstation
-
-Dotmatrix comes with gitconfig for our Hashrocket Workstations that can be
-installed like so:
-
-```
-$ bin/install --workstation
-```
-
 ## Safe by Default
 
 When you install Dotmatrix like this, only files that do not already exist in
 your $HOME directory will be linked. If you have your own .bashrc file, for
 example, Dotmatrix won't mess with it.
 
-What we'd recommend, however, is moving that file to `~/.bashrc.local`, and
+What I'd recommend, however, is moving that file to `~/.bashrc.local`, and
 Dotmatrix will source it for you.
 
 ## Partial Installation
@@ -110,14 +98,6 @@ Plug 'github-user/repo-name'
 
 You need not include a trailing `.git`.
 
-If you are upgrading from a previous version of Dotmatrix that used Pathogen
-make sure to update your .vimbundle.local to the above format. You can do that
-easily with the following command:
-
-```sh
-sed -ie "s/\(.*\)/Plug '\1'/" .vimbundle.local
-```
-
 ## hr
 
 `hr` is a command with lots of useful scripts as subcommands, based loosely on
@@ -131,50 +111,8 @@ initializes it.
 
 To use, just run `hr`. Each subcommand is self-documenting.
 
-### hr plugins
-
-If you have have commands you'd like to add to `hr`, add them within a "plugin".
-Plugins are really just folders within hr's "plugins" folder.
-
-The anatomy of a plugin follows:
-
-```
-<root>/
-  libexec/
-    hr-my-awesome-command
-    hr-my-other-command
-```
-
-With the above plugin, `hr my-awesome-command` would run the script located at
-`hr-my-awesome-command`.
-
-Plugins are designed to be git repos. For example, if there were another hr
-plugin you wanted to add, you could add it like this:
-
-```
-$ hr plugins add my_plugin git://github.com/path/to/git/repo.git
-```
-
-For more information, run `hr help plugins`
-
-## Actively Maintained
-
-At Hashrocket we use Dotmatrix on all of our development machines, then for many
-of us we get so familiar with the setup that we use it on our personal machines
-too. That means there's a lot of picky nerds using Dotmatrix every day to make
-their tools easy and fun to use.
-
 ## Update
 
 Keeping your Dotmatrix up-to-date is easy. Just visit the Dotmatrix directory
 and run `bin/upgrade`. This will fetch the latest changes from GitHub and
 symlink any new files.
-
-## About
-
-[![Hashrocket logo](https://hashrocket.com/hashrocket_logo.svg)](https://hashrocket.com)
-
-Dotmatrix is supported by the team at [Hashrocket, a multidisciplinary design
-and development consultancy](https://hashrocket.com). If you'd like to [work
-with us](https://hashrocket.com/contact-us/hire-us) or [join our
-team](https://hashrocket.com/contact-us/jobs), don't hesitate to get in touch.
