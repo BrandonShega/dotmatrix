@@ -13,3 +13,4 @@ nnoremap <leader>kr :VtrKillRunner<CR>
 nnoremap <leader>ar :VtrAttachToPane<CR>
 nnoremap <leader>fr :VtrFocusRunner<CR>
 nnoremap <leader>rr :VtrSendCommandToRunner! !!<CR>
+nnoremap <leader>t :Rails<CR>
