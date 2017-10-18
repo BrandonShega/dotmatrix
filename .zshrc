@@ -5,14 +5,14 @@ fpath=(
   /usr/local/share/zsh/site-functions
 )
 
-## Sources
+# Sources
 source "$HOME/.sharedrc"
 source $HOME/.zsh/aliases
 source $HOME/.zsh/exports
 source $HOME/.zsh/path
 source $HOME/.zsh/functions
 
-## ZStyle
+# ZStyle
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
 zstyle ':completion:*:ssh:*' tag-order hosts users
@@ -22,14 +22,14 @@ zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zshcache
 
-## Autoload
+# Autoload
 autoload colors; colors
 autoload -U compinit; compinit
 autoload edit-command-line
 autoload -U promptinit; promptinit;
 zle -N edit-command-line
 
-## Keybinds
+# Keybinds
 bindkey -e
 bindkey '^x^e' edit-command-line
 bindkey '\ep' up-line-or-search
@@ -54,7 +54,7 @@ if [ -z "$TMUX" ]; then
   bindkey -M viins "^Z" fg-widget
 fi
 
-## Options
+# Options
 setopt appendhistory
 setopt extendedglob
 setopt histignoredups
@@ -67,15 +67,17 @@ setopt correct
 setopt correctall
 setopt autocd
 
-## Histroy
+# Histroy
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=10000
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 
+# Plugins
+plugins=(rails git ruby bundler)
 
-## Functions
+# Functions
 
 l.() {
   ls -ld "${1:-$PWD}"/.[^.]*
@@ -88,15 +90,15 @@ cuke() {
 }
 compctl -g '*.feature' -W features cuke
 
-## Import
+# Import
 zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
 
-## Misc
+# Misc
 cdpath=(~ ~/src $DEV_DIR $SOURCE_DIR)
 typeset -aU path
 
-## External
+# External
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi # SwiftEnv
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # NVM
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi # RVM
