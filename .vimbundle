@@ -73,11 +73,11 @@ Plug 'tfnico/vim-gradle'
 Plug 'brandonshega/material-vim'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'Scuilion/gradle-syntastic-plugin'
-Plug 'keith/swift'
 Plug 'gfontenot/vim-xcode'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'ajh17/vimcompletesme'
 Plug 'sbdchd/neoformat'
+Plug 'airblade/vim-gitgutter'
 
 if filereadable(expand('~/.vimbundle.local'))
   source ~/.vimbundle.local
