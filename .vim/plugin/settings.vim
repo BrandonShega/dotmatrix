@@ -132,6 +132,7 @@ let g:syntastic_java_javac_config_file_enabled = 1
 " Xcode
 let g:xcode_runner_command = 'VtrSendCommandToRunner! {cmd}'
 let g:xcode_xcpretty_testing_flags = '--test'
+let g:xcode_default_simulator = 'iPhone 8'
 
 " Tmux
 let g:VtrGitCdUpOnOpen = 1

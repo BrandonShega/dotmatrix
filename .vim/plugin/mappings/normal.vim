@@ -15,8 +15,8 @@ nnoremap <silent> <Left> :vertical resize -5<cr>
 nnoremap <silent> <Up> :resize +5<cr>
 nnoremap <silent> <Down> :resize -5<cr>
 nnoremap <C-d> 10<C-d>
-nnoremap <silent> n :call <SID>NextAndCenter('n')<CR>
-nnoremap <silent> N :call <SID>NextAndCenter('N')<CR>
+nnoremap <silent> n :call NextAndCenter('n')<CR>
+nnoremap <silent> N :call NextAndCenter('N')<CR>
 nnoremap gx :call netrw#BrowseX(expand('<cfile>'), 0)<CR>
 nnoremap Y y$
 noremap gk k
