@@ -11,7 +11,6 @@ call plug#begin('~/.vim/bundle')
 
 
 " Make sure you use single quotes
-Plug 'hashrocket/vim-hashrocket'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'adamlowe/vim-slurper'
 Plug 'jbranchaud/vim-bdubs'
@@ -77,7 +76,12 @@ Plug 'gfontenot/vim-xcode'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'ajh17/vimcompletesme'
 Plug 'sbdchd/neoformat'
+Plug 'hashrocket/vim-hashrocket'
 Plug 'airblade/vim-gitgutter'
+
+" staticly check code and highlight errors (async syntastic replacement)
+Plug 'w0rp/ale'
+
 
 if filereadable(expand('~/.vimbundle.local'))
   source ~/.vimbundle.local
