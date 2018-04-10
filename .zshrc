@@ -6,7 +6,7 @@ fpath=(
 )
 
 # Sources
-source "$HOME/.sharedrc"
+source $HOME/.sharedrc
 source $HOME/.zsh/aliases
 source $HOME/.zsh/exports
 source $HOME/.zsh/path
@@ -67,7 +67,7 @@ setopt correct
 setopt correctall
 setopt autocd
 
-# Histroy
+# History
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=10000
