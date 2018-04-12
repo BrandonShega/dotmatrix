@@ -26,7 +26,6 @@ zstyle ':completion:*' cache-path ~/.zshcache
 autoload colors; colors
 autoload -U compinit; compinit
 autoload edit-command-line
-autoload -U promptinit; promptinit;
 zle -N edit-command-line
 
 # Keybinds
@@ -104,9 +103,30 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi # SwiftEnv
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi # RVM
 source $ZSH/oh-my-zsh.sh # Oh-My-ZSH
 eval `docker-machine env 2>/dev/null` # Docker
-prompt pure # Pure Prompt
 
-ZSH_THEME="edvardm"
+# Pure Prompt
+PROMPT_DIR="$HOME/.zsh/pure"
+PROMPT_SETUP_IN="$HOME/.zsh/pure/pure.zsh"
+PROMPT_SETUP="$HOME/.zsh/pure/prompt_pure_setup"
+PROMPT_ASYNC_IN="$HOME/.zsh/pure/async.zsh"
+PROMPT_ASYNC="$HOME/.zsh/pure/async"
+
+if [ -d "$PROMPT_DIR" ] ; then
+    if [ ! -f "$PROMPT_SETUP" ] ; then
+        cp -v "$PROMPT_SETUP_IN" "$PROMPT_SETUP"
+    fi
+    if [ ! -f "$PROMPT_ASYNC" ] ; then
+        cp -v "$PROMPT_ASYNC_IN" "$PROMPT_ASYNC"
+    fi
+
+    fpath+=("$HOME/.zsh/pure")
+    autoload -U promptinit; promptinit
+    prompt pure
+else
+    echo "$PROMPT_DIR does not exist, consider running: git submodule update --init"
+fi
+
+ZSH_THEME=""
 
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
