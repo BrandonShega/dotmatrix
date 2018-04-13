@@ -78,6 +78,7 @@ Plug 'ajh17/vimcompletesme'
 Plug 'sbdchd/neoformat'
 Plug 'hashrocket/vim-hashrocket'
 Plug 'airblade/vim-gitgutter'
+Plug 'sheerun/vim-polyglot'
 
 " staticly check code and highlight errors (async syntastic replacement)
 Plug 'w0rp/ale'
