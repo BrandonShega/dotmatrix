@@ -5,6 +5,9 @@ fpath=(
   /usr/local/share/zsh/site-functions
 )
 
+# Theme
+ZSH_THEME=""
+
 # Sources
 source $HOME/.sharedrc
 source $HOME/.zsh/aliases
@@ -126,7 +129,6 @@ else
     echo "$PROMPT_DIR does not exist, consider running: git submodule update --init"
 fi
 
-ZSH_THEME=""
 # Z
 . $HOME/.zsh/z/z.sh
 
