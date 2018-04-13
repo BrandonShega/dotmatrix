@@ -139,4 +139,5 @@ let g:VtrGitCdUpOnOpen = 1
 
 set background=dark
 " colorscheme solarized
-colorscheme material
+" colorscheme material
+colorscheme nova
