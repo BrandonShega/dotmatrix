@@ -1,0 +1,13 @@
+
+
+set imap_user = "brandon.shega@fbgpg.com"
+set imap_pass = `imap-pass -g brandon.shega@moen.com`
+set smtp_url = "smtp://b.shega@gmail.com@hqexcas.moen.com"
+set smtp_pass = `imap_pass -g brandon.shega@moen.com`
+set from = "brandon.shega@fbgpg.com"
+set realname = "Brandon Shega"
+
+set folder = "imaps://hqexcas.moen.com"
+set spoolfile = "+INBOX"
+set postponed = "+Drafts"
+set record = "+Sent Mail"
