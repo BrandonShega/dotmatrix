@@ -8,13 +8,6 @@ fpath=(
 # Theme
 ZSH_THEME=""
 
-# Sources
-source $HOME/.sharedrc
-source $HOME/.zsh/aliases
-source $HOME/.zsh/exports
-source $HOME/.zsh/path
-source $HOME/.zsh/functions
-
 # ZStyle
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
@@ -104,8 +97,22 @@ typeset -aU path
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi # SwiftEnv
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # NVM
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi # RVM
-source $ZSH/oh-my-zsh.sh # Oh-My-ZSH
 eval `docker-machine env 2>/dev/null` # Docker
+
+# Sources
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.sharedrc
+source $HOME/.zsh/aliases
+source $HOME/.zsh/exports
+source $HOME/.zsh/path
+source $HOME/.zsh/functions
+source $HOME/.zsh/function.sh
+source $HOME/.zsh/key-binding.zsh
+source $ZSH/oh-my-zsh.sh # Oh-My-ZSH
+
+# Z
+. $HOME/.zsh/z/z.sh
 
 # Pure Prompt
 PROMPT_DIR="$HOME/.zsh/pure"
@@ -128,9 +135,3 @@ if [ -d "$PROMPT_DIR" ] ; then
 else
     echo "$PROMPT_DIR does not exist, consider running: git submodule update --init"
 fi
-
-# Z
-. $HOME/.zsh/z/z.sh
-
-source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
