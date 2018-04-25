@@ -82,6 +82,8 @@ Plug 'diepm/vim-rest-console'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug '/usr/local/bin/fzf'
+Plug 'junegunn/fzf.vim'
 
 " staticly check code and highlight errors (async syntastic replacement)
 Plug 'w0rp/ale'
