@@ -1,0 +1,10 @@
+[edit]
+editor = vim
+
+[colorscheme]
+focus_background_color = cyan
+
+[topydo]
+filename = .todo/todo.txt
+archive_filename =
+

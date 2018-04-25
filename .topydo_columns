@@ -1,0 +1,31 @@
+[Current]
+title = Current
+sortexpr = desc:importance
+groupexpr = project
+show_all = 0
+
+[Due Today]
+title = Due Today
+filterexpr = due:today
+sortexpr = desc:due
+show_all = 0
+
+[Overdue]
+title = Overdue
+filterexpr = due:<today
+sortexpr = desc:due
+show_all = 0
+
+[Completed]
+title = Completed
+filterexpr = completed:<=today
+sortexpr = desc:due
+groupexpr = completed
+show_all = 1
+
+[Starred]
+title = Starred
+filterexpr = star:1
+show_all = 1
+
+
