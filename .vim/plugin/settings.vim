@@ -59,6 +59,7 @@ set splitright
 set splitbelow
 set hidden
 set rnu
+set re=1
 
 " F2 before pasting to preserve indentation
 set pastetoggle=<F2>
