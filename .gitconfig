@@ -107,3 +107,5 @@
   path = ~/.gitconfig.local
 [fetch]
   prune = true
+[init]
+	templatedir = ~/.git_template
