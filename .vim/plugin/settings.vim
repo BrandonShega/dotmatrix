@@ -60,6 +60,7 @@ set splitbelow
 set hidden
 set rnu
 set re=1
+set noshowmode
 
 " F2 before pasting to preserve indentation
 set pastetoggle=<F2>
@@ -137,6 +138,52 @@ let g:xcode_default_simulator = 'iPhone 8'
 
 " Tmux
 let g:VtrGitCdUpOnOpen = 1
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let b:deoplete_disable_auto_complete = 1
+let g:deoplete_disable_auto_complete = 1
+call deoplete#custom#buffer_option('auto_compelte', v:false)
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+call deoplete#custom#source('_',
+          \ 'disabled_syntaxes', ['Comment', 'String'])
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete'
+  \]
+let g:deoplete#sources = {}
+let g:deoplete#sources.python = ['jedi']
+let g:deoplete#sources.python3 = ['jedi']
+let g:deoplete#sources.vim = ['vim']
+let g:deoplete#sources.javascript = ['ternjs']
+let g:deoplete#sources#ternjs#types = 1
+
+" Tern
+let g:tern#command = ['tern']
+let g:tern#arugments = ['--persistent']
+
+" Jedi
+let g:jedi#completions_enabled = 1
+let g:jedi#popup_select_first = 0
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" Lightline
+let g:lightline = {
+  \ 'colorscheme': 'material',
+  \ 'active' : {
+  \   'left' : [ [ 'mode', 'paste' ],
+  \              [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'fugitive#head'
+  \ }
+  \ }
 
 set background=dark
 " colorscheme solarized

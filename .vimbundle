@@ -73,17 +73,30 @@ Plug 'brandonshega/material-vim'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'gfontenot/vim-xcode'
 Plug 'christoomey/vim-tmux-runner'
-" Plug 'ajh17/vimcompletesme'
 Plug 'sbdchd/neoformat'
 Plug 'hashrocket/vim-hashrocket'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'diepm/vim-rest-console'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'roxma/nvim-completion-manager'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug '/usr/local/bin/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'wellle/tmux-complete.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'zchee/deoplete-jedi'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'ternjs/tern_for_vim'
+Plug 'itchyny/lightline.vim'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " staticly check code and highlight errors (async syntastic replacement)
 Plug 'w0rp/ale'
