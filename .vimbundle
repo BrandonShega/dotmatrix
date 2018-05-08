@@ -78,6 +78,7 @@ Plug 'hashrocket/vim-hashrocket'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'diepm/vim-rest-console'
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
