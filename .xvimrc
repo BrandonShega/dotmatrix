@@ -4,7 +4,6 @@ set ignorecase
 set smartcase
 
 " Toggle break point in normal and insert modes
-inoremap pry<Esc> <Esc>:xccmd toggleBreakpointAtCurrentLine<CR>
 nnoremap ,b :xccmd toggleBreakpointAtCurrentLine<CR>
 
 nnoremap ,t :xcmenucmd Test<CR>
@@ -13,3 +12,6 @@ nnoremap ,T :xcmenucmd Test Without Building<CR>
 nnoremap gf <C-]>
 nnoremap <C-6> :xcmenucmd Go Back<CR>
 nnoremap ,, :xcmenucmd Go Back<CR>
+
+nnoremap W :xcmenucmd Save<CR>
+nnoremap Q :xcmenucmd Close Tab<CR>
