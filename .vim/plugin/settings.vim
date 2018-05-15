@@ -187,5 +187,5 @@ let g:lightline = {
 
 set background=dark
 " colorscheme solarized
-" colorscheme material
-colorscheme nova
+colorscheme material
+" colorscheme nova
