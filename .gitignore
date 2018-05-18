@@ -1,5 +1,6 @@
 FILES
 .vim/bundle
 .vim/.netrwhist
-configstore
-htop
+/.config/configstore
+/.config/htop
+/.config/git
