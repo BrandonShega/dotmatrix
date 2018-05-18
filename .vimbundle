@@ -90,6 +90,8 @@ Plug 'zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'ternjs/tern_for_vim'
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'ludovicchabant/vim-gutentags'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

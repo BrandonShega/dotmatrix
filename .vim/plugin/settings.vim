@@ -175,7 +175,7 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " Lightline
 let g:lightline = {
-  \ 'colorscheme': 'material',
+  \ 'colorscheme': 'seoul256',
   \ 'active' : {
   \   'left' : [ [ 'mode', 'paste' ],
   \              [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
@@ -196,5 +196,6 @@ let g:vrc_response_default_content_type = 'application/json'
 
 set background=dark
 " colorscheme solarized
-colorscheme material
+" colorscheme material
 " colorscheme nova
+colorscheme seoul256
