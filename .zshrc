@@ -73,7 +73,6 @@ setopt INC_APPEND_HISTORY
 plugins=(rails git ruby bundler)
 
 # Functions
-
 l.() {
   ls -ld "${1:-$PWD}"/.[^.]*
 }
@@ -93,12 +92,6 @@ zrcl="$HOME/.zshrc.local"
 cdpath=(~ ~/src $DEV_DIR $SOURCE_DIR)
 typeset -aU path
 
-# External
-if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi # SwiftEnv
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # NVM
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi # RVM
-eval `docker-machine env 2>/dev/null` # Docker
-
 # Sources
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -110,6 +103,12 @@ source $HOME/.zsh/functions
 source $HOME/.zsh/function.sh
 source $HOME/.zsh/key-binding.zsh
 source $ZSH/oh-my-zsh.sh # Oh-My-ZSH
+
+# External
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi # SwiftEnv
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # NVM
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi # RVM
+eval `docker-machine env 2>/dev/null` # Docker
 
 # Z
 . $HOME/.zsh/z/z.sh
