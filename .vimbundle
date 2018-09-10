@@ -92,6 +92,7 @@ Plug 'ternjs/tern_for_vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'dracula/vim', { 'as': 'dracula'}
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

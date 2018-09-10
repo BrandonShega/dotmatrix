@@ -175,7 +175,7 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " Lightline
 let g:lightline = {
-  \ 'colorscheme': 'seoul256',
+  \ 'colorscheme': 'one',
   \ 'active' : {
   \   'left' : [ [ 'mode', 'paste' ],
   \              [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
@@ -198,4 +198,5 @@ set background=dark
 " colorscheme solarized
 " colorscheme material
 " colorscheme nova
-colorscheme seoul256
+" colorscheme seoul256
+colorscheme dracula
