@@ -30,6 +30,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <silent> <bs> :TmuxNavigateLeft<cr>
 nnoremap <CR> o<Esc>
 noremap <F1> <Nop>
+nnoremap <leader>pt :!prettier %<CR>
 
 " Running as diff
 if &diff
