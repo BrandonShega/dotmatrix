@@ -134,3 +134,5 @@ if [ -d "$PROMPT_DIR" ] ; then
 else
     echo "$PROMPT_DIR does not exist, consider running: git submodule update --init"
 fi
+
+command -v brew > /dev/null && [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
