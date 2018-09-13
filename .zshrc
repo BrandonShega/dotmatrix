@@ -98,7 +98,6 @@ source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.sharedrc
 source $HOME/.zsh/aliases
 source $HOME/.zsh/exports
-source $HOME/.zsh/path
 source $HOME/.zsh/functions
 source $HOME/.zsh/function.sh
 source $HOME/.zsh/key-binding.zsh
