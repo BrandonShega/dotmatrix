@@ -1,14 +1,15 @@
 # vim: ft=sh
 
-[ -z "$name" ] && return 1
+# [ -z "$name" ] && return 1
 
-tmux rename-window -t $name:1 To-Do \; \
-  new-window -a -d -n Misc -t $name:1 \; \
-  new-window -a -d -n Alexa -t $name:1 \; \
-  new-window -a -d -n iOS -t $name:1 \; \
-  new-window -a -d -n Rails -t $name:1 \; \
-  send-keys -t $name:1 'topydo columns' C-m \; \
-  send-keys -t $name:2 'z rails' C-m \; \
-  send-keys -t $name:2 'vim' C-m \; \
-  send-keys -t $name:3 'z ios' C-m \; \
-  send-keys -t $name:4 'z alexa' C-m
+# tmux rename-window -t $name:1 To-Do \; \
+#   new-window -a -d -n Misc -t $name:1 \; \
+#   new-window -a -d -n Alexa -t $name:1 \; \
+#   new-window -a -d -n iOS -t $name:1 \; \
+#   new-window -a -d -n Rails -t $name:1 \; \
+#   split-window \; \
+#   send-keys -t $name:1 'topydo columns' C-m \; \
+#   send-keys -t $name:2 'z rails' C-m \; \
+#   send-keys -t $name:2 'vim' C-m \; \
+#   send-keys -t $name:3 'z ios' C-m \; \
+#   send-keys -t $name:4 'z alexa' C-m
