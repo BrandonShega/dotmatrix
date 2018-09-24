@@ -4,3 +4,4 @@ FILES
 /.config/configstore
 /.config/htop
 /.config/git
+.docsets
