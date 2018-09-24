@@ -5,3 +5,5 @@ FILES
 /.config/htop
 /.config/git
 .docsets
+.tmux/plugins
+.tmux/resurrect
