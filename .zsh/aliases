@@ -10,8 +10,6 @@ alias groutes='rake routes | grep $@'
 alias log="git log --no-merges --name-only"
 alias gprev="git diff -w HEAD"
 alias gprevs="git diff -w --staged HEAD"
-alias gwip='git add -A . && git commit -m "WIP"'
-alias gunwip='git reset --soft HEAD^ && git reset HEAD .'
 
 if command -v nvim 2>&1 >/dev/null; then
   alias vim='nvim'
