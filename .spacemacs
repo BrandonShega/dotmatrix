@@ -333,6 +333,9 @@ you should place your code here."
   (use-package magithub
     :after magit
     :config (magithub-feature-autoinject t))
+
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
