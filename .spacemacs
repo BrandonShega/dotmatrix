@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+;; -*- mode: emacs-lisp; lexical-binding: t -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -10,6 +10,7 @@ This function should only modify configuration layer settings."
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
    dotspacemacs-distribution 'spacemacs
+
    ;; Lazy installation of layers (i.e. layers are installed only when a file
    ;; with a supported type is opened). Possible values are `all', `unused'
    ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
@@ -20,13 +21,16 @@ This function should only modify configuration layer settings."
    ;; variable `dotspacemacs-configuration-layers' to install it.
    ;; (default 'unused)
    dotspacemacs-enable-lazy-installation 'unused
+
    ;; If non-nil then Spacemacs will ask for confirmation before installing
    ;; a layer lazily. (default t)
    dotspacemacs-ask-for-lazy-installation t
+
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
+
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(python
@@ -47,8 +51,8 @@ This function should only modify configuration layer settings."
      syntax-checking
      spotify
      search-engine
-     olivetti
      version-control
+     personal-config
      (markdown :variables
                markdown-live-preview-engine 'vmd)
      (ruby :variables
@@ -63,9 +67,10 @@ This function should only modify configuration layer settings."
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)
      (mu4e :variables
-           mu4e-enable-notifications 1
-           mu4e-enable-mode-line 1)
+           mu4e-enable-notifications t
+           mu4e-enable-mode-line t)
      )
+
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -77,8 +82,10 @@ This function should only modify configuration layer settings."
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
+
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
+
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and deletes any unused
@@ -122,6 +129,7 @@ It should only modify the values of Spacemacs settings."
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
    dotspacemacs-elpa-https t
+
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    ;; (default 5)
    dotspacemacs-elpa-timeout 5
@@ -355,15 +363,14 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
-   ;; dotspacemacs-line-numbers '(:relative 't
-   ;;    :disabled-for-modes dired-mode
-   ;;                        doc-view-mode
-   ;;                        markdown-mode
-   ;;                        org-mode
-   ;;                        pdf-view-mode
-   ;;                        ;; text-mode
-   ;;    :size-limit-kb 3000)
+   dotspacemacs-line-numbers '(:relative 't
+      :disabled-for-modes dired-mode
+                          doc-view-mode
+                          markdown-mode
+                          org-mode
+                          pdf-view-mode
+                          ;; text-mode
+      :size-limit-kb 3000)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -472,13 +479,35 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  (setq user-full-name "Brandon Shega"
-        user-mail-address "b.shega@gmail.com")
-
   (setq js2-mode-show-parse-errors nil
         js2-mode-show-strict-warnings nil)
 
   (setq powerline-default-separator nil)
+
+  ;; Mu4e
+  (with-eval-after-load 'mu4e-alert
+    (mu4e-alert-set-default-style 'notifier))
+
+  (with-eval-after-load 'mu4e
+    (setq mu4e-maildir (expand-file-name "~/Maildir"))
+
+    (setq mu4e-update-interval 60
+          mu4e-get-mail-command "true"
+          mu4e-view-show-images t
+          mu4e-view-show-addresses t)
+
+    (setq mu4e-bookmarks
+          `(
+            ("maildir:/work/INBOX OR maildir:/home/INBOX" "All Inboxes" ?i)
+            ("maildir:/home/INBOX" "Gmail" ?g)
+            ("maildir:/work/INBOX" "Exchange" ?e)
+            ("flag:unread AND NOT flag:trashed" "Unread Messages" ?u)
+            ))
+
+    (setq mu4e-completing-read-function 'completing-read)
+
+    (setq mu4e-html2text-command "iconv -c -t utf-8 | pandoc -f html -t plain")
+  )
 
   ;; Org Mode configuration
   (setq org-directory "~/Dropbox/Organization"
@@ -590,39 +619,10 @@ you should place your code here."
   (spacemacs/set-leader-keys "aogw" 'my-new-weekly-review)
   (spacemacs/set-leader-keys "aogm" 'my-new-monthly-review)
 
-  (add-hook 'text-mode-hook (lambda ()
-                              (interactive)
-                              (message "Olivetti text-mode-hook")
-                              (olivetti-set-width 81)
-                              (hidden-mode-line-mode)
-                              (spacemacs/toggle-vi-tilde-fringe-off)
-                              (olivetti-mode 1)))
-  (add-hook 'prog-mode-hook (lambda ()
-                              (interactive)
-                              (message "Olivetti prog-mode-hook")
-                              (olivetti-set-width 81)
-                              (hidden-mode-line-mode)
-                              (spacemacs/toggle-vi-tilde-fringe-off)
-                              (olivetti-mode 1)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
- '(package-selected-packages
-   '(rainbow-mode csv-mode treepy graphql helm-dash dash-at-point reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl magithub ghub+ apiwrap engine-mode spotify helm-spotify-plus multi vmd-mode restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well php-extras phpunit phpcbf php-auto-yasnippets drupal-mode php-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell auto-dictionary yaml-mode web-mode web-beautify tagedit swift-mode smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv pug-mode projectile-rails rake inflections orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mmm-mode minitest markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc intero flycheck htmlize hlint-refactor hindent helm-hoogle helm-gitignore helm-css-scss helm-company helm-c-yasnippet haskell-snippets haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy feature-mode evil-magit magit magit-popup git-commit ghub with-editor enh-ruby-mode emmet-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-ghci company-ghc ghc haskell-mode company-cabal company coffee-mode cmm-mode chruby bundler inf-ruby auto-yasnippet yasnippet ac-ispell auto-complete dracula-theme-theme dracula-theme ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((((min-colors 16777216)) (:background "#282a36" :foreground "#f8f8f2")) (t (:background "#000000" :foreground "#f8f8f2")))))
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
@@ -633,15 +633,12 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
- '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(mu4e-maildirs-extension mu4e-alert ht helm-mu rainbow-mode csv-mode treepy graphql helm-dash dash-at-point reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl magithub ghub+ apiwrap engine-mode spotify helm-spotify-plus multi vmd-mode restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well php-extras phpunit phpcbf php-auto-yasnippets drupal-mode php-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell auto-dictionary yaml-mode web-mode web-beautify tagedit swift-mode smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv pug-mode projectile-rails rake inflections orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mmm-mode minitest markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc intero flycheck htmlize hlint-refactor hindent helm-hoogle helm-gitignore helm-css-scss helm-company helm-c-yasnippet haskell-snippets haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy feature-mode evil-magit magit magit-popup git-commit ghub with-editor enh-ruby-mode emmet-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-ghci company-ghc ghc haskell-mode company-cabal company coffee-mode cmm-mode chruby bundler inf-ruby auto-yasnippet yasnippet ac-ispell auto-complete dracula-theme-theme dracula-theme ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+   '(org-caldav org-gcal request-deferred yasnippet-snippets yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vmd-mode vi-tilde-fringe uuidgen use-package toc-org tagedit symon swift-mode string-inflection spotify spaceline-all-the-icons smeargle slim-mode shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restclient-helm restart-emacs rbenv rainbow-mode rainbow-identifiers rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode projectile-rails prettier-js popwin pippel pipenv pip-requirements persp-mode password-generator paradox overseer orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets org-brain open-junk-file ob-restclient ob-http neotree nameless multi-term mu4e-maildirs-extension mu4e-alert move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc intero indent-guide importmagic impatient-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-spotify-plus helm-pydoc helm-purpose helm-projectile helm-org-rifle helm-mu helm-mode-manager helm-make helm-hoogle helm-gitignore helm-git-grep helm-flx helm-descbinds helm-dash helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio gnuplot gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help enh-ruby-mode engine-mode emmet-mode elisp-slime-nav editorconfig dumb-jump dracula-theme dotenv-mode doom-modeline diminish diff-hl define-word dash-at-point dante cython-mode csv-mode counsel-projectile company-web company-tern company-statistics company-restclient company-ghci company-ghc company-cabal company-anaconda column-enforce-mode color-identifiers-mode cmm-mode clean-aindent-mode chruby centered-cursor-mode bundler browse-at-remote auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ace-window ace-link ace-jump-helm-line ac-ispell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((((min-colors 16777216)) (:background "#282a36" :foreground "#f8f8f2")) (t (:background "#000000" :foreground "#f8f8f2")))))
+ )
 )

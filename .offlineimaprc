@@ -6,9 +6,8 @@ pythonfile = ~/.offlineimap.py
 [Account Gmail]
 localrepository = LocalGmail
 remoterepository = RepositoryGmail
-autorefresh = 5
+autorefresh = 1
 quick = 10
-status_backend = sqlite
 
 [Repository LocalGmail]
 type = Maildir
@@ -19,17 +18,18 @@ type = Gmail
 maxconnections = 2
 remoteuser = b.shega@gmail.com
 remotepasseval = get_pass("Gmail")
-folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail']
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail',
+                                                     '[Gmail]/Important',
+                                                     '[Gmail]/Spam']
+sslcacertfile = /usr/local/etc/openssl/cert.pem
 
 ###############
 
 [Account Exchange]
 localrepository = LocalExchange
 remoterepository = RepositoryExchange
-autorefresh = 5
+autorefresh = 1
 quick = 10
-status_backend = sqlite
 
 [Repository LocalExchange]
 type = Maildir
@@ -42,4 +42,10 @@ remotehost = localhost
 remoteport = 1143
 remoteuser = moencorp\bshega
 remotepasseval = get_pass("Exchange")
+folderfilter = lambda foldername: foldername not in ['Sync Issues',
+                                                     'Sync Issues/Conflicts',
+                                                     'Sync Issues/Local Failures',
+                                                     'Sync Issues/Server Failures',
+                                                     'Unsent Messages',
+                                                     'Working Set']
 ssl = no
