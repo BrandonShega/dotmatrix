@@ -29,7 +29,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(python
      csv
      helm
      auto-completion
@@ -62,6 +62,9 @@ This function should only modify configuration layer settings."
            helm-dash-docsets-path "~/Library/Application Support/Dash/DocSets")
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)
+     (mu4e :variables
+           mu4e-enable-notifications 1
+           mu4e-enable-mode-line 1)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -352,14 +355,15 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers '(:relative 't
-      :disabled-for-modes dired-mode
-                          doc-view-mode
-                          markdown-mode
-                          org-mode
-                          pdf-view-mode
-                          ;; text-mode
-      :size-limit-kb 3000)
+   dotspacemacs-line-numbers nil
+   ;; dotspacemacs-line-numbers '(:relative 't
+   ;;    :disabled-for-modes dired-mode
+   ;;                        doc-view-mode
+   ;;                        markdown-mode
+   ;;                        org-mode
+   ;;                        pdf-view-mode
+   ;;                        ;; text-mode
+   ;;    :size-limit-kb 3000)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -467,10 +471,124 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq js2-mode-show-parse-errors nil)
-  (setq js2-mode-show-strict-warnings nil)
+
+  (setq user-full-name "Brandon Shega"
+        user-mail-address "b.shega@gmail.com")
+
+  (setq js2-mode-show-parse-errors nil
+        js2-mode-show-strict-warnings nil)
 
   (setq powerline-default-separator nil)
+
+  ;; Org Mode configuration
+  (setq org-directory "~/Dropbox/Organization"
+        org-default-notes-file (concat org-directory "/notes.org")
+        org-agenda-files (list org-directory))
+
+  (defun go-to-projects ()
+    (interactive)
+    (find-file (concat org-directory "/todo.org"))
+    (widen)
+    (beginning-of-buffer)
+    (re-search-forward "* 1 Projects")
+    (beginning-of-line))
+
+  (defun project-overview ()
+    (interactive)
+    (go-to-projects)
+    (org-narrow-to-subtree)
+    (org-sort-entries t ?p)
+    (org-columns))
+
+  (defun project-deadline-overview ()
+    (interactive)
+    (go-to-projects)
+    (org-narrow-to-subtree)
+    (org-sort-entries t ?d)
+    (org-columns))
+
+  (defun my-org-agenda-list-stuck-projects ()
+    (interactive)
+    (go-to-projects)
+    (org-agenda nil "#" 'subtree))
+
+  (defun go-to-areas ()
+    (interactive)
+    (find-file (concat org-directory "/todo.org"))
+    (widen)
+    (beginning-of-buffer)
+    (re-search-forward "* 2 Areas")
+    (beginning-of-line))
+
+  (defun areas-overview ()
+    (interactive)
+    (go-to-areas)
+    (org-narrow-to-subtree)
+    (org-columns))
+
+  (defun my-new-daily-review ()
+    (interactive)
+    (progn
+      (org-capture nil "d")
+      (org-capture-finalize t)
+      (org-speed-move-safe 'outline-up-heading)
+      (org-narrow-to-subtree)
+      (fetch-calendar)
+      (org-clock-in)))
+
+  (defun my-new-weekly-review ()
+    (interactive)
+    (progn
+      (org-capture nil "w")
+      (org-capture-finalize t)
+      (org-speed-move-safe 'outline-up-heading)
+      (org-narrow-to-subtree)
+      (fetch-calendar)
+      (org-clock-in)))
+
+  (defun my-new-monthly-review ()
+    (interactive)
+    (progn
+      (org-capture nil "m")
+      (org-capture-finalize t)
+      (org-speed-move-safe 'outline-up-heading)
+      (org-narrow-to-subtree)
+      (fetch-calendar)
+      (org-clock-in)))
+
+  (bind-keys :prefix-map review-map
+             :prefix "C-c r"
+             ("d" . my-new-daily-review)
+             ("w" . my-new-weekly-review)
+             ("m" . my-new-monthly-review))
+
+  (f-touch "/tmp/reviews.org")
+
+  (setq org-capture-templates
+        '(
+          ("t" "Task" entry (file "~/Dropbox/Organization/inbox.org")
+          "* TODO %?\n")
+          ("p" "Project" entry (file+headline "~/Dropbox/Organization/todo.org" "1 Projects")
+            (file "~/Dropbox/Organization/templates/newprojecttemplate.org"))
+          ("g" "Goal" entry (file+headline "~/Dropbox/Organization/goals.org" "Current Goals")
+            (file "~/Dropbox/Organization/templates/newgoaltemplate.org"))
+          ("d" "Review: Daily Review" entry (file+olp+datetree "/tmp/reviews.org")
+            (file "~/Dropbox/Organization/templates/dailyreviewtemplate.org"))
+          ("w" "Review: Weekly Review" entry (file+olp+datetree "/tmp/reviews.org")
+            (file "~/Dropbox/Organization/templates/weeklyreviewtemplate.org"))
+          ("m" "Review: Monthly Review" entry (file+olp+datetree "/tmp/reviews.org")
+            (file "~/Dropbox/Organization/templates/monthlyreviewtemplate.org"))))
+
+  (spacemacs/declare-prefix "aog" "project")
+  (spacemacs/set-leader-keys "aogp" 'go-to-projects)
+  (spacemacs/set-leader-keys "aogn" 'project-overview)
+  (spacemacs/set-leader-keys "aogm" 'areas-overview)
+  (spacemacs/set-leader-keys "aogl" 'project-deadline-overview)
+  (spacemacs/set-leader-keys "aogs" 'my-org-agenda-list-stuck-projects)
+  (spacemacs/set-leader-keys "aoga" 'go-to-areas)
+  (spacemacs/set-leader-keys "aogd" 'my-new-daily-review)
+  (spacemacs/set-leader-keys "aogw" 'my-new-weekly-review)
+  (spacemacs/set-leader-keys "aogm" 'my-new-monthly-review)
 
   (add-hook 'text-mode-hook (lambda ()
                               (interactive)
@@ -519,7 +637,7 @@ This function is called at the very end of Spacemacs initialization."
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl browse-at-remote rainbow-mode csv-mode treepy graphql helm-dash dash-at-point reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl magithub ghub+ apiwrap engine-mode spotify helm-spotify-plus multi vmd-mode restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well php-extras phpunit phpcbf php-auto-yasnippets drupal-mode php-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell auto-dictionary yaml-mode web-mode web-beautify tagedit swift-mode smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv pug-mode projectile-rails rake inflections orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mmm-mode minitest markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc intero flycheck htmlize hlint-refactor hindent helm-hoogle helm-gitignore helm-css-scss helm-company helm-c-yasnippet haskell-snippets haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy feature-mode evil-magit magit magit-popup git-commit ghub with-editor enh-ruby-mode emmet-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-ghci company-ghc ghc haskell-mode company-cabal company coffee-mode cmm-mode chruby bundler inf-ruby auto-yasnippet yasnippet ac-ispell auto-complete dracula-theme-theme dracula-theme ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+   '(mu4e-maildirs-extension mu4e-alert ht helm-mu rainbow-mode csv-mode treepy graphql helm-dash dash-at-point reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl magithub ghub+ apiwrap engine-mode spotify helm-spotify-plus multi vmd-mode restclient-helm ob-restclient ob-http company-restclient restclient know-your-http-well php-extras phpunit phpcbf php-auto-yasnippets drupal-mode php-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell auto-dictionary yaml-mode web-mode web-beautify tagedit swift-mode smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv pug-mode projectile-rails rake inflections orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mmm-mode minitest markdown-toc markdown-mode magit-gitflow livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc intero flycheck htmlize hlint-refactor hindent helm-hoogle helm-gitignore helm-css-scss helm-company helm-c-yasnippet haskell-snippets haml-mode gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy feature-mode evil-magit magit magit-popup git-commit ghub with-editor enh-ruby-mode emmet-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-ghci company-ghc ghc haskell-mode company-cabal company coffee-mode cmm-mode chruby bundler inf-ruby auto-yasnippet yasnippet ac-ispell auto-complete dracula-theme-theme dracula-theme ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
