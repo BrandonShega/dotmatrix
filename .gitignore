@@ -7,3 +7,5 @@ FILES
 .docsets
 .tmux/plugins
 .tmux/resurrect
+.config/neofetch
+.config/pusher.json
