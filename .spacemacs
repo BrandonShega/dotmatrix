@@ -66,9 +66,9 @@ This function should only modify configuration layer settings."
            helm-dash-docsets-path "~/Library/Application Support/Dash/DocSets")
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)
-     (mu4e :variables
-           mu4e-enable-notifications t
-           mu4e-enable-mode-line t)
+     ;; (mu4e :variables
+     ;;       mu4e-enable-notifications t
+     ;;       mu4e-enable-mode-line t)
      )
 
    ;; List of additional packages that will be installed without being
@@ -462,7 +462,6 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
   )
 
 (defun dotspacemacs/user-load ()
