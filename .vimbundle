@@ -86,21 +86,12 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'wellle/tmux-complete.vim'
 Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'ternjs/tern_for_vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'dracula/vim', { 'as': 'dracula'}
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'ajh17/VimCompletesMe'
 
 " staticly check code and highlight errors (async syntastic replacement)
 Plug 'w0rp/ale'
