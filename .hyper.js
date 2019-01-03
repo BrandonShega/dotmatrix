@@ -45,7 +45,7 @@ module.exports = {
   plugins: [
     'hyper-dracula',
     'hyper-spotify',
-    'hyper-statusline',
+    // 'hyper-statusline',
     'hyperlinks',
     'hyperterm-paste'
   ],
