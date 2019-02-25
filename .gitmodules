@@ -10,3 +10,6 @@
 [submodule ".zsh/z"]
 	path = .zsh/z
 	url = https://github.com/rupa/z.git
+[submodule ".spacemacs.d"]
+	path = .spacemacs.d
+	url = https://github.com/BrandonShega/.spacemacs.d
