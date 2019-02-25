@@ -1,9 +1,11 @@
 FILES
 .vim/bundle
 .vim/.netrwhist
-/.config/configstore
-/.config/htop
-/.config/git
+.config/configstore
+.config/htop
+.config/git
+.config/asciinema
+.config/wireshark
 .docsets
 .tmux/plugins
 .tmux/resurrect

@@ -108,6 +108,9 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi # SwiftEnv
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # NVM
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi # RVM
 eval `docker-machine env 2>/dev/null` # Docker
+eval "$(pyenv init -)" # Pyenv
+if [[ -s "$HOME/.asdf/asdf.sh" ]] ; then source "$HOME/.asdf/asdf.sh" ; fi # ASDF
+if [[ -s "$HOME/.asdf/asdf.bash" ]] ; then source "$HOE/asdf/asdf.bash" ; fi # ASDF
 
 # Z
 . $HOME/.zsh/z/z.sh

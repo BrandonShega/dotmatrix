@@ -1,3 +1,7 @@
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    PATH=/Applications/Emacs.app/Contents/MacOS/Emacs:$PATH
+    PATH=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient:$PATH
+fi
 PATH=$HOME/.rvm/bin:$PATH
 PATH=$HOME/.bin:$PATH
 PATH=$HOME/.local/bin:$PATH
