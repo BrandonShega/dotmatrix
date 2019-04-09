@@ -1,10 +1,10 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 13,
+    fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily: 'DejaVu Sans Mono, Source Code Pro, Consolas',
+    fontFamily: 'Monaco, DejaVu Sans Mono, Source Code Pro, Consolas',
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
@@ -43,8 +43,11 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyper-dracula',
-    'hyper-spotify',
+    // 'hyper-dracula',
+    // 'hyper-material-theme',
+    // 'hyper-snazzy',
+    'hyper-solarized-light',
+    'hyper-tabs-enhanced',
     // 'hyper-statusline',
     'hyperlinks',
     'hyperterm-paste'

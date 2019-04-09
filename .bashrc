@@ -10,7 +10,7 @@ export HISTCONTROL=erasedups
 # Append to history file
 shopt -s histappend
 
-VISUAL=vim
+VISUAL=emacsclient -t
 EDITOR="$VISUAL"
 LESS="FRX"
 RI="--format ansi -T"

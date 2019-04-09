@@ -13,3 +13,9 @@
 [submodule ".spacemacs.d"]
 	path = .spacemacs.d
 	url = https://github.com/BrandonShega/.spacemacs.d
+[submodule ".mutt/mutt"]
+	path = .mutt/mutt
+	url = https://github.com/dracula/mutt.git
+[submodule ".mutt/mutt-dracula"]
+	path = .mutt/mutt-dracula
+	url = https://github.com/dracula/mutt.git
