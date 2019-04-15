@@ -1,3 +1,20 @@
-folder-hook home/* source ~/.mutt/accounts/home
+source ~/.mutt/mutt-dracula/dracula.muttrc
 
-source ~/.mutt/accounts/home
+set realname = "Brandon Shega"
+set use_from
+
+folder-hook personal 'source ~/.mutt/accounts/personal'
+folder-hook work 'source ~/.mutt/accounts/work'
+
+source ~/.mutt/accounts/personal
+
+set mbox_type = Maildir
+set copy
+mailboxes ~/mail/personal
+mailboxes ~/mail/work
+
+macro index \bp <sync-mailbox><change-folder>~/mail/personal/Inbox<enter>
+macro index \bw <sync-mailbox><change-folder>~/mail/work/Inbox<enter>
+
+mail_check = 5
+mail_check_recent = yes

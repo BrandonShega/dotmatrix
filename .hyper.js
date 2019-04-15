@@ -43,10 +43,10 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    // 'hyper-dracula',
+    'hyper-dracula',
     // 'hyper-material-theme',
     // 'hyper-snazzy',
-    'hyper-solarized-light',
+    // 'hyper-solarized-light',
     'hyper-tabs-enhanced',
     // 'hyper-statusline',
     'hyperlinks',
