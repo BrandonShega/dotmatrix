@@ -3,11 +3,12 @@ Expunge Both
 SyncState *
 
 IMAPAccount work
-Host localhost
-Port 1143
-User moencorp\\bshega
+Host outlook.office365.com
+Port 993
+User brandon.shega@fbgpg.com
 PassCmd "pass Exchange"
-SSLType None
+SSLType IMAPS
+SSLVersions TLSv1.2
 AuthMechs LOGIN
 
 IMAPStore work-remote
