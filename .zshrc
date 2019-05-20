@@ -110,6 +110,7 @@ eval `docker-machine env 2>/dev/null` # Docker
 eval "$(pyenv init -)" # Pyenv
 if [[ -s "$HOME/.asdf/asdf.sh" ]] ; then source "$HOME/.asdf/asdf.sh" ; fi # ASDF
 if [[ -s "$HOME/.asdf/asdf.bash" ]] ; then source "$HOE/asdf/asdf.bash" ; fi # ASDF
+if [[ -s "$HOME/.asdf/completions/asdf.sh" ]] ; then source "$HOME/.asdf/completions/asdf.sh" ; fi # ASDF
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi # RVM
 
 # Z
