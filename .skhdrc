@@ -10,7 +10,13 @@ alt - s : chunkc tiling::desktop --layout monocle
 alt - d : chunkc tiling::desktop --layout float
 
 # kill focused window
-shift + alt - q : chunkc tiling::window --close
+alt - q : chunkc tiling::window --close
+
+# focus window
+alt - h : chunkc tiling::window --focus west
+alt - j : chunkc tiling::window --focus south
+alt - k : chunkc tiling::window --focus north
+alt - l : chunkc tiling::window --focus east
 
 # move focused window
 shift + alt - h : chunkc tiling::window --warp west
@@ -18,10 +24,13 @@ shift + alt - j : chunkc tiling::window --warp south
 shift + alt - k : chunkc tiling::window --warp north
 shift + alt - l : chunkc tiling::window --warp east
 
-alt - r : chunkc tiling::desktop --rotate 90
+# applications
+alt - return : ~/Dropbox/opt/scripts/iterm
+alt - r : ~/Dropbox/opt/scripts/iterm ranger
+alt - e : /Applications/Emacs.app/Contents/MacOS/Emacs
 
 # move focused container to workspace
-shift + alt - m : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
+shift + alt - m : chunkc tiling::window --send-to-desktop $(chunkc get_last_active_desktop)
 shift + alt - p : chunkc tiling::window --send-to-desktop prev
 shift + alt - n : chunkc tiling::window --send-to-desktop next
 shift + alt - 1 : chunkc tiling::window --send-to-desktop 1
