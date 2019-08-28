@@ -19,3 +19,6 @@
 [submodule ".mutt/mutt-dracula"]
 	path = .mutt/mutt-dracula
 	url = https://github.com/dracula/mutt.git
+[submodule ".doom.d"]
+	path = .doom.d
+	url = git@github.com:BrandonShega/.doom.d.git
