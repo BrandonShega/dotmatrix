@@ -25,7 +25,6 @@ shift + alt - k : chunkc tiling::window --warp north
 shift + alt - l : chunkc tiling::window --warp east
 
 # applications
-alt - return : ~/Dropbox/opt/scripts/iterm
 alt - r : ~/Dropbox/opt/scripts/iterm ranger
 alt - e : /Applications/Emacs.app/Contents/MacOS/Emacs
 

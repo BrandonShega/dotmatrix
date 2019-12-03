@@ -24,25 +24,46 @@ Master :work-remote:
 Slave :work-local:
 Patterns * !"Archives" !"Sync Issues" !"Sync Issues/Conflicts" !"Sync Issues/Local Failures" !"Sync Issues/Server Failures" !"Unsent Messages" !"Working Set"
 
-IMAPAccount icloud
-Host imap.mail.me.com
-User b.shega
-PassCmd "pass iCloud"
-Port 993
+# IMAPAccount icloud
+# Host imap.mail.me.com
+# User b.shega
+# PassCmd "pass iCloud"
+# Port 993
+# SSLType IMAPS
+# SSLVersions TLSv1.2
+# AuthMechs PLAIN
+#
+# IMAPStore icloud-remote
+# Account icloud
+#
+# MaildirStore icloud-local
+# SubFolders Verbatim
+# path ~/mail/personal/
+# Inbox ~/mail/personal/Inbox
+# Trash Trash
+#
+# Channel icloud
+# Master :icloud-remote:
+# Slave :icloud-local:
+# Patterns * !"Notes" !"Deleted Messages" !"Junk"
+
+IMAPAccount personal
+Host imap.gmail.com
+User b.shega@gmail.com
+PassCmd "pass Gmail"
 SSLType IMAPS
 SSLVersions TLSv1.2
-AuthMechs PLAIN
+AuthMechs LOGIN
 
-IMAPStore icloud-remote
-Account icloud
+IMAPStore personal-remote
+Account personal
 
-MaildirStore icloud-local
+MaildirStore personal-local
 SubFolders Verbatim
-path ~/mail/personal/
+Path ~/mail/personal/
 Inbox ~/mail/personal/Inbox
-Trash Trash
 
-Channel icloud
-Master :icloud-remote:
-Slave :icloud-local:
-Patterns * !"Notes" !"Deleted Messages" !"Junk"
+Channel personal
+Master :personal-remote:
+Slave :personal-local:
+Patterns *

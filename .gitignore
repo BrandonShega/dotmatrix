@@ -11,3 +11,4 @@ FILES
 .tmux/resurrect
 .config/neofetch
 .config/pusher.json
+.config/karabiner/automatic_backups
