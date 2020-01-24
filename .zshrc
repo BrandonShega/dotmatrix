@@ -77,10 +77,14 @@ l.() {
   ls -ld "${1:-$PWD}"/.[^.]*
 }
 
+emacs.() {
+  emacsclient -c -a= $*
+}
+
 # default apps
 (( ${+PAGER}   )) || export PAGER='less'
-(( ${+EDITOR}  )) || export EDITOR='vim'
-export PSQL_EDITOR='vim -c"setf sql"'
+(( ${+EDITOR}  )) || export EDITOR='emacsclient -t -a ""'
+export PSQL_EDITOR='emacsclient -t -a ""'
 
 # Aliases
 # * Additional aliases are found in `.sharedrc`

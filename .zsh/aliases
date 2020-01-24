@@ -10,6 +10,10 @@ alias groutes='rake routes | grep $@'
 alias log="git log --no-merges --name-only"
 alias gprev="git diff -w HEAD"
 alias gprevs="git diff -w --staged HEAD"
+alias ec='emacsclient -c -n -a ""'
+alias e='emacsclient -t -a ""'
+alias vim="e"
+alias vi="e"
 
 if command -v nvim 2>&1 >/dev/null; then
   alias vim='nvim'

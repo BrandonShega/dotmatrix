@@ -5,9 +5,9 @@ alt - f : chunkc tiling::window --toggle fullscreen
 shift + alt - space : chunkc tiling::window --toggle float
 
 # change layout of desktop
-alt - a : chunkc tiling::desktop --layout bsp
-alt - s : chunkc tiling::desktop --layout monocle
-alt - d : chunkc tiling::desktop --layout float
+shift + alt - a : chunkc tiling::desktop --layout bsp
+shift + alt - s : chunkc tiling::desktop --layout monocle
+shift + alt - d : chunkc tiling::desktop --layout float
 
 # kill focused window
 alt - q : chunkc tiling::window --close
@@ -26,7 +26,7 @@ shift + alt - l : chunkc tiling::window --warp east
 
 # applications
 alt - r : ~/Dropbox/opt/scripts/iterm ranger
-alt - e : /Applications/Emacs.app/Contents/MacOS/Emacs
+alt - e : emacsclient -c -a ""
 
 # move focused container to workspace
 shift + alt - m : chunkc tiling::window --send-to-desktop $(chunkc get_last_active_desktop)
