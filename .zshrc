@@ -83,8 +83,8 @@ emacs.() {
 
 # default apps
 (( ${+PAGER}   )) || export PAGER='less'
-(( ${+EDITOR}  )) || export EDITOR='emacsclient -t -a ""'
-export PSQL_EDITOR='emacsclient -t -a ""'
+(( ${+EDITOR}  )) || export EDITOR='vim'
+export PSQL_EDITOR='vim'
 
 # Aliases
 # * Additional aliases are found in `.sharedrc`
