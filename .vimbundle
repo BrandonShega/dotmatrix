@@ -96,7 +96,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'dracula/vim', { 'as': 'dracula'}
-Plug 'ajh17/VimCompletesMe'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " staticly check code and highlight errors (async syntastic replacement)
 Plug 'w0rp/ale'

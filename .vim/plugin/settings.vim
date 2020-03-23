@@ -171,6 +171,21 @@ let g:vrc_curl_opts = {
   \ }
 let g:vrc_response_default_content_type = 'application/json'
 
+" LSP
+let g:LanguageClient_serverCommands = {
+  \ 'javascript': ['javascript-typescript-stdio'],
+  \ 'typescript': ['javascript-typescript-stdio'],
+  \ 'ruby': ['solargraph', 'stdio']
+  \ }
+
+let g:LanguageClient_rootMarkers = {
+  \ 'javascript': ['jsconfig.json'],
+  \ 'typescript': ['tsconfig.json']
+  \ }
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
 set background=dark
 " colorscheme solarized
 " colorscheme material
