@@ -9,8 +9,6 @@ if $VIM_PLUGINS != 'NO'
   runtime! ftplugin/man.vim
 endif
 
-let g:mapleader=","
-
 syntax on
 filetype plugin indent on
 

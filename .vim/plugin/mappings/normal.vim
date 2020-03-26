@@ -1,29 +1,15 @@
-nnoremap <C-j> <C-w>j
 nnoremap Q :quit<CR>
 nnoremap W :write<CR>
 noremap j gj
 noremap k gk
 nnoremap <C-u> 10<C-u>
-nnoremap H ^
-nnoremap <C-o> <C-o>zz
 nnoremap ; :
-nnoremap * :keepjumps normal! mi*`i<CR>
-nnoremap # :keepjumps normal! mi#`i<CR>
-nnoremap U :syntax sync fromstart<CR>:redraw!<CR>
-nnoremap <silent> <Right> :vertical resize +5<cr>
-nnoremap <silent> <Left> :vertical resize -5<cr>
-nnoremap <silent> <Up> :resize +5<cr>
-nnoremap <silent> <Down> :resize -5<cr>
-nnoremap <C-d> 10<C-d>
 nnoremap <silent> n :call NextAndCenter('n')<CR>
 nnoremap <silent> N :call NextAndCenter('N')<CR>
-nnoremap gx :call netrw#BrowseX(expand('<cfile>'), 0)<CR>
 nnoremap Y y$
 noremap gk k
-noremap <Up> gk
 noremap gj j
-noremap <Down> gj
-noremap K <Nop>
+nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
@@ -35,6 +21,7 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <leader> <tab> <C-^>
 
 " Running as diff
 if &diff

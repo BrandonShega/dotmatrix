@@ -68,6 +68,8 @@ set pastetoggle=<F2>
 " On quit reset title
 let &titleold=getcwd()
 
+let mapleader=" "
+
 " Default text width to 80
 if &textwidth == 0
   set textwidth=80
@@ -122,15 +124,6 @@ let g:c_no_curly_error = 1
 " https://github.com/thoughtbot/dotfiles/pull/471
 let g:is_posix = 1
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_swift_checkers = ['swiftlint']
-let g:syntastic_java_checkers=['javac']
-let g:syntastic_java_javac_config_file_enabled = 1
-
 " Xcode
 let g:xcode_runner_command = 'VtrSendCommandToRunner! {cmd}'
 let g:xcode_xcpretty_testing_flags = '--test'
@@ -150,45 +143,5 @@ let g:jedi#popup_select_first = 0
 " Supertab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
-" Lightline
-let g:lightline = {
-  \ 'colorscheme': 'one',
-  \ 'active' : {
-  \   'left' : [ [ 'mode', 'paste' ],
-  \              [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'fugitive#head'
-  \ }
-  \ }
-
-" Rest Console
-let g:vrc_auto_format_response_patterns = {
-  \ 'json': 'jq "."',
-  \ }
-let g:vrc_curl_opts = {
-  \ '-i': '',
-  \ }
-let g:vrc_response_default_content_type = 'application/json'
-
-" LSP
-let g:LanguageClient_serverCommands = {
-  \ 'javascript': ['javascript-typescript-stdio'],
-  \ 'typescript': ['javascript-typescript-stdio'],
-  \ 'ruby': ['solargraph', 'stdio']
-  \ }
-
-let g:LanguageClient_rootMarkers = {
-  \ 'javascript': ['jsconfig.json'],
-  \ 'typescript': ['tsconfig.json']
-  \ }
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-
 set background=dark
-" colorscheme solarized
-" colorscheme material
-" colorscheme nova
-" colorscheme seoul256
 colorscheme dracula

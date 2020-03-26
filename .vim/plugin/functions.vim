@@ -61,3 +61,8 @@ function! ToggleRelativeOn()
     set rnu!
     set nu
 endfunction
+
+function! s:warp_denite(cmd) abort
+  exe a:cmd
+  doautocmd WinEnter
+endfunction
