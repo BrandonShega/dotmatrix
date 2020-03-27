@@ -22,3 +22,6 @@
 [submodule ".doom.d"]
 	path = .doom.d
 	url = git@github.com:BrandonShega/.doom.d.git
+[submodule ".tmux"]
+	path = .tmux
+	url = https://github.com/gpakosz/.tmux.git
