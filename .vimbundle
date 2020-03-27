@@ -97,6 +97,14 @@ Plug 'junegunn/seoul256.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'dracula/vim', { 'as': 'dracula'}
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'Shougo/neomru.vim'
+if has('nvim')
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/denite.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " staticly check code and highlight errors (async syntastic replacement)
 Plug 'w0rp/ale'

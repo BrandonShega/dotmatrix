@@ -1,4 +1,7 @@
-nnoremap <silent><leader>ff :Denite file/rec<CR>
+nnoremap <silent><leader>ff :<C-u>Denite -start-filter file/rec<CR>
+nnoremap <silent><leader>pf :<C-u>DeniteBufferDir -start-filter file/rec<CR>
+nnoremap <silent><leader>bb :<C-u>Denite buffer<CR>
+nnoremap <silent><leader>fr :<C-u>Denite file_mru<CR>
 
 if has('nvim')
   call denite#custom#option('_', {
@@ -66,6 +69,8 @@ function! s:denite_settings() abort
   nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
   nnoremap <silent><buffer><expr> p    denite#do_map('do_action', 'preview')
   nnoremap <silent><buffer><expr> q    denite#do_map('quit')
+  nnoremap <silent><buffer><expr> v    denite#do_map('do_action', 'vsplit')
+  nnoremap <silent><buffer><expr> s    denite#do_map('do_action', 'split')
 endfunction
 
 function! s:denite_preview() abort

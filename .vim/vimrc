@@ -27,6 +27,8 @@ endif
 
 set shell=bash
 
+let mapleader=" "
+
 augroup vimrc
   autocmd!
   autocmd GuiEnter * set columns=120 lines=70 number

@@ -68,8 +68,6 @@ set pastetoggle=<F2>
 " On quit reset title
 let &titleold=getcwd()
 
-let mapleader=" "
-
 " Default text width to 80
 if &textwidth == 0
   set textwidth=80
