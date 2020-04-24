@@ -1,0 +1,10 @@
+# /Users/bshega/.config/tmuxinator/js.yml
+
+name: js
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim
+        -
