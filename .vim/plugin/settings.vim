@@ -28,7 +28,7 @@ set showmatch                  " Set show matching parenthesis
 set matchtime=2                " The amount of time matches flash
 set display=lastline           " Display super long wrapped lines
 set number                     " Shows line numbers
-set relativenumber
+set relativenumber             " Relative line numbers
 set cursorline                 " Highlight the line the cursor is on
 set nrformats-=octal           " Never use octal notation
 set nojoinspaces               " Don't add 2 spaces when using J
@@ -141,5 +141,7 @@ let g:jedi#popup_select_first = 0
 " Supertab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
+let g:jsx_ext_required = 1
+
 set background=dark
-colorscheme dracula
+colorscheme snazzy

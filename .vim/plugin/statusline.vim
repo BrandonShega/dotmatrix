@@ -22,6 +22,7 @@ if has('statusline')
   set statusline+=\ %m
   set statusline+=\ %r
   set statusline+=\ %{fugitive#statusline()}
+  set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
   set statusline+=%=
   " Right Side
   set statusline+=%y

@@ -2,6 +2,7 @@ nnoremap <silent><leader>ff :<C-u>Denite -start-filter file/rec<CR>
 nnoremap <silent><leader>pf :<C-u>DeniteBufferDir -start-filter file/rec<CR>
 nnoremap <silent><leader>bb :<C-u>Denite buffer<CR>
 nnoremap <silent><leader>fr :<C-u>Denite file_mru<CR>
+nnoremap <silent><leader><leader> :<C-u>DeniteBufferDir -start-filter file/rec<CR>
 
 if has('nvim')
   call denite#custom#option('_', {

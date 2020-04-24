@@ -39,7 +39,6 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-cucumber'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
@@ -84,7 +83,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'diepm/vim-rest-console'
 Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -94,10 +93,10 @@ Plug 'davidhalter/jedi-vim'
 Plug 'ternjs/tern_for_vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/seoul256.vim'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'dracula/vim', { 'as': 'dracula'}
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'Shougo/neomru.vim'
+Plug 'connorholyday/vim-snazzy'
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 else

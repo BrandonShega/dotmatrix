@@ -13,7 +13,7 @@ syntax on
 filetype plugin indent on
 
 if has('gui')
-  set guifont="JetBrainsMono Nerd Font 13"
+  set guifont="JetBrainsMono Nerd Font 11"
   set guioptions-=T
   set guioptions-=e
   set guioptions-=L
@@ -21,8 +21,6 @@ if has('gui')
   set guioptions-=R
   set guioptions-=r
   set guioptions-=b
-
-  call has('python')
 endif
 
 set shell=bash

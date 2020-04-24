@@ -1,10 +1,14 @@
 let g:lightline = {
-  \ 'colorscheme': 'one',
+  \ 'colorscheme': 'material',
   \ 'active' : {
   \   'left' : [ [ 'mode', 'paste' ],
-  \              [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
+  \              [ 'readonly', 'filename', 'modified' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'cocstatus', 'gitbranch', 'fileformat', 'filetype' ] ]
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'fugitive#head'
+  \   'gitbranch': 'fugitive#head',
+  \   'cocstatus': 'coc#status'
   \ }
   \ }
