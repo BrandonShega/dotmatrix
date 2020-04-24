@@ -6,6 +6,12 @@ FILES
 .config/git
 .config/asciinema
 .config/wireshark
+.config/coc
+.config/xbuild
+.config/stetic
+.config/NuGet
+.config/Microsoft\\VisualStudio Services
+.config/.mono
 .docsets
 .tmux/plugins
 .tmux/resurrect
