@@ -10,31 +10,23 @@ end
 call plug#begin('~/.vim/bundle')
 
 " Make sure you use single quotes
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'adamlowe/vim-slurper'
+
+" Language
 Plug 'elixir-lang/vim-elixir'
-Plug 'ervandew/supertab'
 Plug 'exu/pgsql.vim'
-Plug 'godlygeek/tabular'
-Plug 'gregsexton/gitv'
-Plug 'hashrocket/vim-hashrocket'
-Plug 'heartsentwined/vim-emblem'
-Plug 'jbranchaud/vim-bdubs'
-Plug 'jgdavey/tslime.vim'
-Plug 'jgdavey/vim-blockle'
-Plug 'jgdavey/vim-railscasts'
-Plug 'jgdavey/vim-turbux'
-Plug 'jgdavey/vim-weefactor'
-Plug 'kana/vim-textobj-user'
-Plug 'kchmck/vim-coffee-script'
 Plug 'leshill/vim-json'
-Plug 'mileszs/ack.vim'
-Plug 'mxw/vim-jsx'
-Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
-Plug 'rondale-sc/vim-spacejam'
-Plug 'slim-template/vim-slim'
-Plug 'therubymug/vim-pyte'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tfnico/vim-gradle'
+Plug 'artur-shaik/vim-javacomplete2'
+Plug 'sheerun/vim-polyglot'
+
+" Miscellaneous
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'rbong/vim-flog'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
@@ -59,28 +51,12 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-vividchalk'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-dadbod'
-Plug 'vim-ruby/vim-ruby'
-Plug 'wgibbs/vim-irblack'
-Plug 'kana/vim-textobj-user'
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'exu/pgsql.vim'
-Plug 'elixir-lang/vim-elixir'
-Plug 'mxw/vim-jsx'
-Plug 'go2null/vim-oil'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'trevordmiller/nova-vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'tfnico/vim-gradle'
-Plug 'brandonshega/material-vim'
-Plug 'artur-shaik/vim-javacomplete2'
-Plug 'gfontenot/vim-xcode'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'sbdchd/neoformat'
-Plug 'hashrocket/vim-hashrocket'
 Plug 'airblade/vim-gitgutter'
-Plug 'sheerun/vim-polyglot'
 Plug 'diepm/vim-rest-console'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -91,10 +67,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'wellle/tmux-complete.vim'
 Plug 'davidhalter/jedi-vim'
-Plug 'ternjs/tern_for_vim'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'dracula/vim', { 'as': 'dracula'}
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'Shougo/neomru.vim'
 Plug 'connorholyday/vim-snazzy'
@@ -106,8 +79,12 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-" staticly check code and highlight errors (async syntastic replacement)
-Plug 'w0rp/ale'
+" Themes
+Plug 'trevordmiller/nova-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'brandonshega/material-vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'dracula/vim', { 'as': 'dracula'}
 
 if filereadable(expand('~/.vimbundle.local'))
   source ~/.vimbundle.local
