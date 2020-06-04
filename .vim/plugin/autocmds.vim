@@ -49,4 +49,6 @@ if has('autocmd')
   augroup END
 
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+  autocmd BufEnter * :syntax sync fromstart
 endif

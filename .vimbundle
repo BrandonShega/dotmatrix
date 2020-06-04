@@ -61,23 +61,12 @@ Plug 'diepm/vim-rest-console'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'wellle/tmux-complete.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'Shougo/neomru.vim'
 Plug 'connorholyday/vim-snazzy'
-if has('nvim')
-  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/denite.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 
 " Themes
 Plug 'trevordmiller/nova-vim'

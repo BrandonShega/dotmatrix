@@ -61,6 +61,7 @@ set hidden
 set rnu
 set re=1
 set noshowmode
+set redrawtime=10000
 
 " F2 before pasting to preserve indentation
 set pastetoggle=<F2>
@@ -144,4 +145,4 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:jsx_ext_required = 1
 
 set background=dark
-colorscheme snazzy
+colorscheme dracula
