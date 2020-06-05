@@ -1,5 +1,5 @@
 let g:lightline = {
-  \ 'colorscheme': 'material',
+  \ 'colorscheme': 'dracula',
   \ 'active' : {
   \   'left' : [ [ 'mode', 'paste' ],
   \              [ 'readonly', 'filename', 'modified' ] ],

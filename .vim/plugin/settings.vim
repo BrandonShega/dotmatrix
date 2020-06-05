@@ -59,9 +59,7 @@ set splitright
 set splitbelow
 set hidden
 set rnu
-set re=1
 set noshowmode
-set redrawtime=10000
 
 " F2 before pasting to preserve indentation
 set pastetoggle=<F2>
