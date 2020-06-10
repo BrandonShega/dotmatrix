@@ -25,8 +25,8 @@
 [github]
   user = brandonshega
 [user]
-  email = b.shega@gmail.com
-  name = "Brandon Shega"
+	email = b.shega@gmail.com
+	name = Brandon Shega
 [color]
   pager = true
   ui = auto
@@ -110,3 +110,8 @@
   prune = true
 [github "git.moen.com/api/v3"]
 	user = bshega
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

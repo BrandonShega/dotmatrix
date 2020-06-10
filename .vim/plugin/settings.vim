@@ -60,6 +60,7 @@ set splitbelow
 set hidden
 set rnu
 set noshowmode
+set signcolumn=yes
 
 " F2 before pasting to preserve indentation
 set pastetoggle=<F2>

@@ -12,56 +12,61 @@ call plug#begin('~/.vim/bundle')
 " Make sure you use single quotes
 
 " Language
- Plug 'sheerun/vim-polyglot'
+ " Plug 'sheerun/vim-polyglot'
+Plug 'leafgarland/typescript-vim'
 
 " Miscellaneous
- Plug 'AndrewRadev/splitjoin.vim'
- Plug 'ervandew/supertab'
- Plug 'godlygeek/tabular'
- Plug 'rbong/vim-flog'
- Plug 'tpope/vim-abolish'
- Plug 'tpope/vim-bundler'
- Plug 'tpope/vim-commentary'
- Plug 'tpope/vim-cucumber'
- Plug 'tpope/vim-eunuch'
- Plug 'tpope/vim-fugitive'
- Plug 'tpope/vim-git'
- Plug 'tpope/vim-haml'
- Plug 'tpope/vim-markdown'
- Plug 'tpope/vim-projectionist'
- Plug 'tpope/vim-ragtag'
- Plug 'tpope/vim-rails'
- Plug 'tpope/vim-rake'
- Plug 'tpope/vim-repeat'
- Plug 'tpope/vim-rsi'
- Plug 'tpope/vim-sensible'
- Plug 'tpope/vim-sleuth'
- Plug 'tpope/vim-speeddating'
- Plug 'tpope/vim-surround'
- Plug 'tpope/vim-unimpaired'
- Plug 'tpope/vim-vinegar'
- Plug 'tpope/vim-vividchalk'
- Plug 'tpope/vim-dispatch'
- Plug 'tpope/vim-dadbod'
- Plug 'scrooloose/nerdtree'
- Plug 'ctrlpvim/ctrlp.vim'
- Plug 'christoomey/vim-tmux-navigator'
- Plug 'christoomey/vim-tmux-runner'
- Plug 'sbdchd/neoformat'
- Plug 'airblade/vim-gitgutter'
- Plug 'diepm/vim-rest-console'
- Plug '/usr/local/opt/fzf'
- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
- Plug 'junegunn/fzf.vim'
- Plug 'wellle/tmux-complete.vim'
- Plug 'davidhalter/jedi-vim'
- Plug 'itchyny/lightline.vim'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'rbong/vim-flog'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-vividchalk'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-dadbod'
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'sbdchd/neoformat'
+Plug 'airblade/vim-gitgutter'
+Plug 'diepm/vim-rest-console'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'wellle/tmux-complete.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'itchyny/lightline.vim'
 
 " CoC
- Plug 'neoclide/coc.nvim', { 'branch': 'release' }
- Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
- Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
- Plug 'neoclide/coc-tslint', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-tslint-plugin', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'iamcco/coc-angular', { 'do': 'yarn install --frozen-lockfile' }
 
 " Themes
 Plug 'trevordmiller/nova-vim'

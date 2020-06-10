@@ -1,18 +1,5 @@
 scriptencoding utf-8
 
-function! LinterStatus() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-
-  return l:counts.total == 0 ? 'OK' : printf(
-  \  '%dW %dE',
-  \  all_non_errors,
-  \  all_errors
-  \)
-endfunction
-
 if has('statusline')
   set laststatus=2 " Always show the statusline
   " Left Side
@@ -29,5 +16,4 @@ if has('statusline')
   set statusline+=\ \ %P
   set statusline+=-%l
   set statusline+=-%c
-  set statusline+=\ %{LinterStatus()}
 endif
