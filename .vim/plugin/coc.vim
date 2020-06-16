@@ -61,3 +61,10 @@ augroup end
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport')
+
+" Jest
+command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+command! JestInit :call CocAction('runCommand', 'jest.init')
+nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+nnoremap <leader>tf :call CocAction('runCommand', 'jest.fileTest', ['%'])<CR>

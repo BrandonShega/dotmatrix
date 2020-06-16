@@ -144,4 +144,4 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:jsx_ext_required = 1
 
 set background=dark
-colorscheme dracula
+colorscheme seoul256
