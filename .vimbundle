@@ -57,6 +57,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'wellle/tmux-complete.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'vim-test/vim-test'
+Plug 'junegunn/gv.vim'
 
 " CoC
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -66,6 +68,7 @@ Plug 'neoclide/coc-tslint-plugin', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc-jest', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'iamcco/coc-angular', { 'do': 'yarn install --frozen-lockfile' }
 
 " Themes
