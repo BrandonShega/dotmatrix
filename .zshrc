@@ -128,6 +128,10 @@ if [[ -s "$HOME/.asdf/asdf.bash" ]] ; then source "$HOE/asdf/asdf.bash" ; fi # A
 if [[ -s "$HOME/.asdf/completions/asdf.sh" ]] ; then source "$HOME/.asdf/completions/asdf.sh" ; fi # ASDF
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi # RVM
 
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    xcape -e 'Caps_Lock=Escape'
+fi
+
 # Z
 . $HOME/.zsh/z/z.sh
 

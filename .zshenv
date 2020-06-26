@@ -10,3 +10,5 @@ PATH=$HOME/.composer/vendor/bin:$PATH
 PATH=$HOME/Documents/flutter/bin:$PATH
 PATH=/usr/local/opt/openssl/bin:$PATH
 PATH=$HOME/.emacs.d/bin:$PATH
+PATH=$HOME/go/bin:$PATH
+PATH=$HOME/.pyenv/bin:$PATH
