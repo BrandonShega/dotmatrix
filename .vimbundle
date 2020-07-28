@@ -14,6 +14,7 @@ call plug#begin('~/.vim/bundle')
 " Language
  " Plug 'sheerun/vim-polyglot'
 Plug 'leafgarland/typescript-vim'
+Plug 'keith/swift.vim'
 
 " Miscellaneous
 Plug 'AndrewRadev/splitjoin.vim'
@@ -28,7 +29,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-haml'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-rails'
@@ -59,6 +59,10 @@ Plug 'davidhalter/jedi-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'vim-test/vim-test'
 Plug 'junegunn/gv.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'amix/vim-zenroom2'
 
 " CoC
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -70,6 +74,7 @@ Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'neoclide/coc-jest', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'iamcco/coc-angular', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'klaaspieter/coc-sourcekit', { 'do': 'yarn install --frozen-lockfile' }
 
 " Themes
 Plug 'trevordmiller/nova-vim'
