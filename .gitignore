@@ -18,3 +18,12 @@ FILES
 .config/neofetch
 .config/pusher.json
 .config/karabiner/automatic_backups
+
+.spacemacs.d/.spacemacs.env
+
+.doom.d/config.el
+
+.emacs.d/config.el
+.emacs.d/elpa
+.emacs.d/auto-save-list
+.emacs.d/straight
