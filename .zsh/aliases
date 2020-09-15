@@ -13,6 +13,7 @@ alias gprevs="git diff -w --staged HEAD"
 alias ec='emacsclient -c -n -a ""'
 alias e='emacsclient -t -a ""'
 alias mux=tmuxinator
+alias ue='cd ~/.emacs.d && git pull origin develop'
 
 if command -v nvim 2>&1 >/dev/null; then
   alias vim='nvim'

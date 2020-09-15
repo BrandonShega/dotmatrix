@@ -6,7 +6,7 @@ fpath=(
 )
 
 # Theme
-ZSH_THEME=""
+ZSH_THEME="robbyrussell"
 
 # ZStyle
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
@@ -135,28 +135,6 @@ fi
 # Z
 . $HOME/.zsh/z/z.sh
 
-# Pure Prompt
-PROMPT_DIR="$HOME/.zsh/pure"
-PROMPT_SETUP_IN="$HOME/.zsh/pure/pure.zsh"
-PROMPT_SETUP="$HOME/.zsh/pure/prompt_pure_setup"
-PROMPT_ASYNC_IN="$HOME/.zsh/pure/async.zsh"
-PROMPT_ASYNC="$HOME/.zsh/pure/async"
-
-if [ -d "$PROMPT_DIR" ] ; then
-    if [ ! -f "$PROMPT_SETUP" ] ; then
-        cp -v "$PROMPT_SETUP_IN" "$PROMPT_SETUP"
-    fi
-    if [ ! -f "$PROMPT_ASYNC" ] ; then
-        cp -v "$PROMPT_ASYNC_IN" "$PROMPT_ASYNC"
-    fi
-
-    fpath+=("$HOME/.zsh/pure")
-    autoload -U promptinit; promptinit
-    prompt pure
-else
-    echo "$PROMPT_DIR does not exist, consider running: git submodule update --init"
-fi
-
 command -v brew > /dev/null && [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # tabtab source for serverless package
@@ -166,4 +144,5 @@ command -v brew > /dev/null && [[ -s $(brew --prefix)/etc/profile.d/autojump.sh 
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/bshega/.nvm/versions/node/v9.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/bshega/.nvm/versions/node/v9.8.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

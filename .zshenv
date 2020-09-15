@@ -13,3 +13,6 @@ PATH=$HOME/.emacs.d/bin:$PATH
 PATH=$HOME/go/bin:$PATH
 PATH=$HOME/.pyenv/bin:$PATH
 PATH=/opt/swift/usr/bin:$PATH
+
+zrcl="$HOME/.zshenv.local"
+[[ ! -a $zrcl ]] || source $zrcl
