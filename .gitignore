@@ -18,6 +18,7 @@ FILES
 .config/neofetch
 .config/pusher.json
 .config/karabiner/automatic_backups
+.config/nvim/autoload/plugged
 
 .spacemacs.d/.spacemacs.env
 

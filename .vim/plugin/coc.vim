@@ -68,3 +68,17 @@ command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['
 command! JestInit :call CocAction('runCommand', 'jest.init')
 nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 nnoremap <leader>tf :call CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
+
+" Extensions
+let g:coc_global_extensions = [
+      \'coc-tsserver',
+      \'coc-json',
+      \'coc-tslint-plugin',
+      \'coc-html',
+      \'coc-prettier',
+      \'coc-css',
+      \'coc-jest',
+      \'coc-angular',
+      \'coc-sourcekit',
+      \'coc-vetur'
+      \]

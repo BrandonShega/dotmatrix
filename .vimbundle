@@ -66,15 +66,6 @@ Plug 'amix/vim-zenroom2'
 
 " CoC
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'neoclide/coc-tsserver', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-json', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-tslint-plugin', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-html', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-prettier', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-css', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'neoclide/coc-jest', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'iamcco/coc-angular', { 'do': 'yarn install --frozen-lockfile' }
-Plug 'klaaspieter/coc-sourcekit', { 'do': 'yarn install --frozen-lockfile' }
 
 " Themes
 Plug 'trevordmiller/nova-vim'
